@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library Management System</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CHART -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>📚 LMS</h2>
+
+    <button class="nav-btn active" data-section="dashboard">
+      <i class="fa fa-home"></i> Dashboard
+    </button>
+
+    <button class="nav-btn" data-section="book">
+      <i class="fa fa-book"></i> Books
+    </button>
+
+    <button class="nav-btn" data-section="member">
+      <i class="fa fa-users"></i> Members
+    </button>
+
+    <button class="nav-btn" data-section="issue">
+      <i class="fa fa-arrow-up"></i> Issue
+    </button>
+
+    <button class="nav-btn" data-section="return">
+      <i class="fa fa-arrow-down"></i> Return
+    </button>
+
+    <button class="nav-btn" data-section="fine">
+      <i class="fa fa-money-bill"></i> Fine
+    </button>
+
+    <button class="nav-btn" data-section="librarian">
+      <i class="fa fa-user-tie"></i> Librarian
+    </button>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <input type="text" placeholder="🔍 Search..." class="search">
+      <button id="darkModeToggle">🌙</button>
+      <div class="profile">👤 Admin</div>
+    </div>
+
+    <!-- ================= DASHBOARD ================= -->
+    <div id="dashboard" class="section active">
+      <div class="dashboard-header">
+        <h2>Dashboard Overview</h2>
+      </div>
+
+      <div class="dashboard-stats">
+        <div class="stat-card books">
+          <h3>Total Books</h3>
+          <p id="totalBooks">0</p>
+        </div>
+
+        <div class="stat-card members">
+          <h3>Total Members</h3>
+          <p id="totalMembers">0</p>
+        </div>
+
+        <div class="stat-card issued">
+          <h3>Books Issued</h3>
+          <p id="totalIssued">0</p>
+        </div>
+
+        <div class="stat-card fine">
+          <h3>Total Fine</h3>
+          <p id="totalFine">₹0</p>
+        </div>
+      </div>
+
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <!-- BOOK -->
+    <div id="book" class="section">
+      <div class="card book-card">
+        <div class="card-title">Book</div>
+        <input id="bookTitle" placeholder="Title">
+        <input id="bookISBN" placeholder="ISBN">
+        <input id="bookPrice" placeholder="Price">
+        <button class="btn btn-primary" id="addBookBtn">Add Book</button>
+
+        <table>
+          <tbody id="bookTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- MEMBER -->
+    <div id="member" class="section">
+      <div class="card member-card">
+        <div class="card-title">Member</div>
+        <input id="memberName" placeholder="Name">
+        <input id="memberPhone" placeholder="Phone">
+        <input id="memberEmail" placeholder="Email">
+        <button class="btn btn-secondary" id="addMemberBtn">Add Member</button>
+
+        <table>
+          <tbody id="memberTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ISSUE -->
+    <div id="issue" class="section">
+      <div class="card issue-card">
+        <div class="card-title">Issue Book</div>
+        <select id="issueBook"></select>
+        <select id="issueMember"></select>
+        <button class="btn btn-primary" id="issueBtn">Issue</button>
+      </div>
+    </div>
+
+    <!-- RETURN -->
+    <div id="return" class="section">
+      <div class="card return-card">
+        <div class="card-title">Return Book</div>
+        <select id="returnIssue"></select>
+        <button class="btn btn-secondary" id="returnBtn">Return</button>
+      </div>
+    </div>
+
+    <!-- FINE -->
+    <div id="fine" class="section">
+      <div class="card fine-card">
+        <div class="card-title">Fine</div>
+        <p id="fineDisplay">₹0</p>
+      </div>
+    </div>
+
+    <!-- LIBRARIAN -->
+    <div id="librarian" class="section">
+      <div class="card librarian-card">
+        <div class="card-title">Librarian</div>
+        <input id="librarianName" placeholder="Name">
+        <button class="btn btn-primary" id="addLibrarianBtn">Add Librarian</button>
+
+        <ul id="librarianList"></ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
+<button id="menuToggle">☰</button>
