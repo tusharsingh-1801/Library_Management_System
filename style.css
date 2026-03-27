@@ -1,0 +1,469 @@
+/* ================= ROOT ================= */
+:root {
+  --primary: #4CAF50;
+  --secondary: #2196F3;
+  --danger: #f44336;
+  --warning: #ff9800;
+
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --text: #333;
+  --border: #e0e0e0;
+
+  --radius: 10px;
+  --transition: 0.3s ease;
+}
+
+/* ================= DARK MODE ================= */
+body.dark {
+  --bg: #121212;
+  --card: #1e1e1e;
+  --text: #f1f1f1;
+  --border: #333;
+}
+
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ================= LAYOUT ================= */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main {
+  margin-left: 240px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  position: fixed;
+  background: linear-gradient(180deg, #4CAF50, #2e7d32);
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+/* NAV BUTTON */
+.nav-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  color: white;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 5px;
+}
+
+.nav-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.nav-btn.active {
+  background: rgba(255,255,255,0.25);
+  font-weight: bold;
+}
+
+/* ================= TOPBAR ================= */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card);
+  padding: 15px 20px;
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* DARK FIX */
+body.dark .topbar {
+  box-shadow: none;
+}
+
+.search {
+  padding: 10px;
+  width: 250px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+}
+
+.profile {
+  font-weight: bold;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+
+body.dark .card {
+  box-shadow: none;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* ================= ENTITY COLORS ================= */
+.book-card { border-left: 5px solid var(--primary); }
+.member-card { border-left: 5px solid var(--secondary); }
+.issue-card { border-left: 5px solid var(--warning); }
+.return-card { border-left: 5px solid #3f51b5; }
+.fine-card { border-left: 5px solid var(--danger); }
+.librarian-card { border-left: 5px solid #009688; }
+
+/* ================= FORM ================= */
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+}
+
+body.dark input,
+body.dark select {
+  background: #2a2a2a;
+  color: white;
+  border: 1px solid #444;
+}
+
+/* ================= BUTTON ================= */
+.btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary { background: var(--primary); color: white; }
+.btn-secondary { background: var(--secondary); color: white; }
+.btn-danger { background: var(--danger); color: white; }
+
+.btn:hover {
+  transform: scale(1.03);
+}
+
+/* ================= TABLE ================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th {
+  background: var(--secondary);
+  color: white;
+  padding: 10px;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+body.dark td {
+  border-color: #444;
+}
+
+tr:nth-child(even) {
+  background: rgba(0,0,0,0.03);
+}
+
+body.dark tr:nth-child(even) {
+  background: rgba(255,255,255,0.05);
+}
+
+/* ================= DASHBOARD ================= */
+.dashboard {
+  margin-bottom: 30px;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ================= SECTION ================= */
+.section {
+  display: none;
+  animation: fade 0.4s ease;
+}
+
+.section.active {
+  display: block;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+    padding: 10px;
+  }
+
+  .sidebar h2 {
+    display: none;
+  }
+
+  .main {
+    margin-left: 70px;
+    padding: 15px;
+  }
+}
+/* =========================================================
+   📱 RESPONSIVE DESIGN (MOBILE → TABLET → DESKTOP)
+   ========================================================= */
+
+/* ================= MOBILE (≤ 768px) ================= */
+@media (max-width: 768px) {
+
+  .container {
+    flex-direction: column;
+  }
+
+  /* Sidebar becomes top bar */
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+  }
+
+  .sidebar h2 {
+    display: none;
+  }
+
+  .nav-btn {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  /* Main takes full width */
+  .main {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  /* Topbar stack */
+  .topbar {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  /* Cards full width */
+  .card {
+    padding: 15px;
+  }
+
+  /* Table scroll */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Dashboard grid */
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ================= TABLET (769px - 1024px) ================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .sidebar {
+    width: 180px;
+  }
+
+  .main {
+    margin-left: 180px;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search {
+    width: 180px;
+  }
+}
+
+
+/* ================= SMALL LAPTOP (1025px - 1280px) ================= */
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+  .dashboard-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* ================= LARGE SCREENS (1281px+) ================= */
+@media (min-width: 1281px) {
+
+  .dashboard-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .main {
+    max-width: 1400px;
+    margin-left: 240px;
+  }
+}* {
+  transition: all 0.25s ease;
+}
+/* ================= SIDEBAR COLLAPSE ================= */
+.sidebar {
+  transition: all 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.sidebar.collapsed h2 {
+  display: none;
+}
+
+.sidebar.collapsed .nav-btn {
+  text-align: center;
+  font-size: 0;
+}
+
+.sidebar.collapsed .nav-btn i {
+  font-size: 18px;
+}
+
+/* Adjust main */
+.main {
+  transition: all 0.3s ease;
+}
+
+.main.expanded {
+  margin-left: 70px;
+}
+
+/* ================= HAMBURGER BUTTON ================= */
+#menuToggle {
+  font-size: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* ================= MOBILE SIDEBAR ================= */
+@media (max-width: 768px) {
+
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    height: 100%;
+    z-index: 1000;
+    width: 200px;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .main {
+    margin-left: 0 !important;
+  }
+}
+
+/* ================= ANIMATIONS ================= */
+.card {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover effect */
+.card:hover {
+  transform: translateY(-5px) scale(1.01);
+}
+
+/* Button animation */
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
